@@ -35,8 +35,8 @@
     body {
       background-color: var(--bg);
       color: var(--text);
-      padding-top: 135px; /* Espacio para que el contenido no quede debajo del header fijo */
-      padding-bottom: 75px; /* Espacio para la barra inferior fija */
+      padding-top: 135px;
+      padding-bottom: 75px;
     }
 
     @media (min-width: 768px) {
@@ -120,7 +120,7 @@
     .download-app-btn { background: #fef08a; color: #854d0e; border-color: #fde047; }
     .admin-toggle-btn.active-mode { background: var(--primary); color: #fff; border-color: var(--primary); }
 
-    /* BUSCADOR ESTILO TEMU (GRANDE Y FIJO) */
+    /* BUSCADOR ESTILO TEMU */
     .search-container {
       width: 100%;
       position: relative;
@@ -208,7 +208,7 @@
 
     .suggestion-item:hover { background: #f3f4f6; }
 
-    /* BARRA DE CATEGORÍAS FIJA */
+    /* BARRA DE CATEGORÍAS */
     .categories-bar-container {
       max-width: 1200px;
       margin: 0 auto;
@@ -723,7 +723,7 @@
       cursor: pointer;
     }
 
-    /* BARRA INFERIOR FLOTANTE ESTILO APP (MÓVIL) FIJA */
+    /* BARRA INFERIOR FLOTANTE FIJA (MÓVIL) */
     .mobile-bottom-nav {
       position: fixed;
       bottom: 0;
@@ -818,6 +818,29 @@
     .btn-facebook { background: var(--facebook); }
     .btn-tiktok { background: var(--tiktok); }
     .btn-instagram { background: var(--instagram); }
+
+    /* MODAL INSTALAR APP (PWA) */
+    .app-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 3600;
+      padding: 14px;
+      background: rgba(0,0,0,0.5);
+    }
+    .app-modal.active { display: flex; }
+
+    .app-content {
+      background: #fff;
+      width: 100%;
+      max-width: 360px;
+      border-radius: 16px;
+      padding: 22px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
 
     /* CARRITO LATERAL */
     .overlay {
@@ -1071,11 +1094,10 @@
 </head>
 <body>
 
-  <!-- ENCABEZADO FIJO (STICKY) -->
+  <!-- ENCABEZADO FIJO -->
   <header class="header">
     <div class="header-container">
       
-      <!-- 1. FILA SUPERIOR: Logo, Moneda S/, Botón Admin, App -->
       <div class="header-top-row">
         <div class="logo" id="logoBtn" onclick="volverATienda()">
           Andreo At
@@ -1091,13 +1113,12 @@
             <i class="fa-solid fa-lock"></i> <span>Admin</span>
           </button>
 
-          <button class="download-app-btn" onclick="descargarApp()" type="button">
+          <button class="download-app-btn" onclick="abrirAppModal()" type="button">
             <i class="fa-solid fa-mobile-screen-button"></i> <span>App</span>
           </button>
         </div>
       </div>
 
-      <!-- 2. BUSCADOR GRANDE Y ANCHO -->
       <div class="search-container" id="searchContainer">
         <div class="search-box">
           <input type="text" id="searchInput" placeholder="ropa hombre, juguetes..." autocomplete="off" />
@@ -1113,13 +1134,12 @@
 
     </div>
 
-    <!-- 3. BARRA DE CATEGORÍAS -->
     <div class="categories-bar-container">
       <nav class="categories" id="categoryBar"></nav>
     </div>
   </header>
 
-  <!-- ==================== VISTA TIENDA PRINCIPAL ==================== -->
+  <!-- ==================== VISTA TIENDA ==================== -->
   <div id="storeView">
     <section class="size-filter">
       <span class="filter-label">Talla:</span>
@@ -1137,7 +1157,7 @@
     </main>
   </div>
 
-  <!-- ==================== VISTA DETALLE DE PRODUCTO ==================== -->
+  <!-- ==================== VISTA DETALLE ==================== -->
   <div class="product-detail-view" id="productDetailView">
     <button class="back-store-btn" onclick="volverATienda()" type="button">
       <i class="fa-solid fa-arrow-left"></i> Volver al catálogo
@@ -1185,10 +1205,8 @@
       </div>
     </div>
 
-    <!-- SECCIÓN DE RESEÑAS -->
     <div class="reviews-section">
       <h3 style="margin-bottom:10px; font-size:1.1rem;"><i class="fa-solid fa-comments"></i> Reseñas de Compradores</h3>
-      
       <div id="reviewsListContainer"></div>
 
       <div class="review-form-box">
@@ -1198,7 +1216,6 @@
             <label>Tu Nombre</label>
             <input type="text" id="reviewAuthor" required placeholder="Ej. Carlos Mendoza" />
           </div>
-
           <div class="form-group">
             <label>Calificación</label>
             <div class="star-select" id="starSelectContainer">
@@ -1209,15 +1226,11 @@
               <span data-value="5" onclick="seleccionarEstrellasForm(5)" class="active">★</span>
             </div>
           </div>
-
           <div class="form-group">
             <label>Tu Comentario</label>
             <textarea id="reviewComment" rows="2" required placeholder="¿Qué tal te pareció?"></textarea>
           </div>
-
-          <button type="submit" class="checkout-btn" style="padding:10px; font-size:0.88rem;">
-            Publicar Reseña
-          </button>
+          <button type="submit" class="checkout-btn" style="padding:10px; font-size:0.88rem;">Publicar Reseña</button>
         </form>
       </div>
     </div>
@@ -1233,22 +1246,18 @@
             <label>Nombre y Marca</label>
             <input type="text" id="prodName" required placeholder="Ej. Polera Nike" />
           </div>
-
           <div class="form-group">
             <label>Categoría</label>
             <input type="text" id="prodCategory" required placeholder="Ej. Poleras" />
           </div>
-
           <div class="form-group">
             <label>Precio (<span class="currencySymbolLabel">S/</span>)</label>
             <input type="number" step="0.50" id="prodPrice" required placeholder="Ej. 55.00" />
           </div>
-
           <div class="form-group">
             <label>Stock / Alerta</label>
             <input type="text" id="prodStock" required value="¡Últimas unidades!" />
           </div>
-
           <div class="form-group">
             <label>Tallas</label>
             <div class="size-checkboxes">
@@ -1258,20 +1267,15 @@
               <label><input type="checkbox" value="XL" checked /> XL</label>
             </div>
           </div>
-
           <div class="form-group">
             <label>Subir foto</label>
             <input type="file" id="prodImageFile" accept="image/*" />
           </div>
-
           <div class="form-group">
             <label>O enlace URL</label>
             <input type="url" id="prodImageUrl" placeholder="https://..." />
           </div>
-
-          <button type="submit" class="checkout-btn">
-            <i class="fa-solid fa-cloud-arrow-up"></i> Publicar
-          </button>
+          <button type="submit" class="checkout-btn"><i class="fa-solid fa-cloud-arrow-up"></i> Publicar</button>
         </form>
       </div>
 
@@ -1280,7 +1284,6 @@
           <h2 style="margin:0;"><i class="fa-solid fa-boxes-stacked"></i> Inventario (<span id="adminTotalCount">0</span>)</h2>
           <button class="btn-reset" id="resetCatalogBtn" type="button">Restaurar</button>
         </div>
-
         <div class="admin-table-wrap">
           <table class="admin-table">
             <thead>
@@ -1299,7 +1302,7 @@
     </div>
   </section>
 
-  <!-- BARRA INFERIOR FLOTANTE FIJA (MÓVIL) -->
+  <!-- BARRA INFERIOR FIJA -->
   <nav class="mobile-bottom-nav">
     <button class="nav-item active" onclick="volverATienda()" type="button">
       <i class="fa-solid fa-house"></i>
@@ -1320,7 +1323,7 @@
     </button>
   </nav>
 
-  <!-- MODAL DE PERFIL / INICIO DE SESIÓN SOCIAL -->
+  <!-- MODAL DE PERFIL / INICIO DE SESIÓN -->
   <div class="profile-modal" id="profileModal">
     <div class="profile-content">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
@@ -1341,6 +1344,24 @@
       <button class="social-login-btn btn-instagram" onclick="iniciarSesionSocial('Instagram')">
         <i class="fa-brands fa-instagram"></i> Continuar con Instagram
       </button>
+    </div>
+  </div>
+
+  <!-- MODAL INSTALAR APP -->
+  <div class="app-modal" id="appModal">
+    <div class="app-content">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <h3 style="font-size:1.1rem; color:var(--primary-dark);">Instalar Andreo At App</h3>
+        <button class="close-btn" onclick="cerrarAppModal()"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <p style="font-size:0.85rem; color:#555; margin-bottom:16px; line-height:1.4;">
+        Para tener la tienda como una aplicación directa en tu celular:
+      </p>
+      <div style="background:#f9fafb; border:1px solid #e5e7eb; padding:12px; border-radius:8px; font-size:0.82rem; text-align:left; margin-bottom:16px; color:#333;">
+        1. Toca los tres puntos <b>(⋮)</b> arriba en tu navegador.<br>
+        2. Selecciona <b>"Agregar a la pantalla principal"</b> o <b>"Instalar aplicación"</b>.
+      </div>
+      <button class="whatsapp-btn" style="padding:10px; font-size:0.88rem;" onclick="cerrarAppModal()">¡Entendido!</button>
     </div>
   </div>
 
@@ -1377,7 +1398,7 @@
     </div>
   </aside>
 
-  <!-- MODAL CHECKOUT YAPE / PLIN / WHATSAPP -->
+  <!-- MODAL CHECKOUT -->
   <div class="modal" id="checkoutModal">
     <div class="modal-content">
       <div class="modal-header">
@@ -1419,29 +1440,14 @@
     </div>
   </div>
 
-  <!-- TOAST -->
   <div class="toast" id="toast"></div>
 
   <script>
-    function descargarApp() {
-      const contenido = "=====================================\n" +
-                        "      ANDREO AT STORE - APP OFICIAL     \n" +
-                        "=====================================\n\n" +
-                        "¡Gracias por descargar la aplicación oficial de Andreo At!\n\n" +
-                        "• Disfruta de tus compras directas desde cualquier lugar.\n" +
-                        "• Usa el cupón: ANDREO20 para 20% de descuento.\n" +
-                        "• Soporte y pedidos rápidos por WhatsApp.\n";
-
-      const blob = new Blob([contenido], { type: "text/plain;charset=utf-8" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "AndreoAt_App_Instrucciones.txt";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      mostrarToast("¡Descarga de la App iniciada!");
+    function abrirAppModal() {
+      document.getElementById("appModal").classList.add("active");
+    }
+    function cerrarAppModal() {
+      document.getElementById("appModal").classList.remove("active");
     }
 
     const DEFAULT_PRODUCTS = [
