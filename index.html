@@ -31,14 +31,14 @@
     body {
       background-color: var(--bg);
       color: var(--text);
-      padding-bottom: 70px; /* Espacio para barra flotante móvil */
+      padding-bottom: 75px; /* Espacio para barra flotante inferior */
     }
 
     @media (min-width: 768px) {
       body { padding-bottom: 40px; }
     }
 
-    /* HEADER ESTILO TEMU (MÓVIL: BUSCADOR ARRIBA, LOGO/ACCIONES ENCIMA O AL LADO) */
+    /* HEADER ESTILO TEMU */
     .header {
       background: var(--primary);
       color: #fff;
@@ -57,7 +57,7 @@
       gap: 10px;
     }
 
-    /* Fila superior en móvil: Logo, Moneda, Admin, App, Carrito */
+    /* Fila superior: Logo, Moneda, Admin, App */
     .header-top-row {
       display: flex;
       align-items: center;
@@ -67,7 +67,7 @@
 
     .logo {
       font-family: 'Great Vibes', 'Brush Script MT', cursive;
-      font-size: 2.1rem;
+      font-size: 2.2rem;
       font-weight: 400;
       line-height: 1;
       cursor: pointer;
@@ -88,7 +88,7 @@
       color: #fff;
       padding: 4px 6px;
       border-radius: 6px;
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       font-weight: 700;
       cursor: pointer;
     }
@@ -112,31 +112,7 @@
     .download-app-btn { background: rgba(255, 255, 255, 0.2); color: #fde047; }
     .admin-toggle-btn.active-mode { background: #fff; color: var(--primary); }
 
-    .cart-btn {
-      background: rgba(255,255,255,0.2);
-      border: none;
-      color: #fff;
-      font-size: 1.1rem;
-      padding: 6px 9px;
-      border-radius: 50%;
-      position: relative;
-      cursor: pointer;
-    }
-
-    .cart-badge {
-      position: absolute;
-      top: -3px;
-      right: -3px;
-      background: #111;
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 700;
-      padding: 2px 5px;
-      border-radius: 10px;
-      border: 1.5px solid #fff;
-    }
-
-    /* BUSCADOR ARRIBA (ESTILO TEMU) */
+    /* BUSCADOR GRANDE ABAJO DEL LOGO */
     .search-container {
       width: 100%;
       position: relative;
@@ -144,10 +120,10 @@
 
     .search-box {
       background: #fff;
-      border-radius: 22px;
+      border-radius: 24px;
       display: flex;
       align-items: center;
-      padding: 5px 6px 5px 14px;
+      padding: 6px 8px 6px 16px;
       color: var(--muted);
       border: 2px solid transparent;
       box-shadow: 0 2px 6px rgba(0,0,0,0.08);
@@ -159,7 +135,7 @@
       border: none;
       outline: none;
       width: 100%;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       background: transparent;
       color: #111;
     }
@@ -168,10 +144,10 @@
       background: #d1d5db;
       color: #fff;
       border: none;
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       cursor: pointer;
       display: none;
       align-items: center;
@@ -186,9 +162,9 @@
       background: var(--text);
       color: #fff;
       border: none;
-      width: 32px;
-      height: 30px;
-      border-radius: 16px;
+      width: 36px;
+      height: 32px;
+      border-radius: 18px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -215,8 +191,8 @@
     .search-suggestions.active { display: block; }
 
     .suggestion-item {
-      padding: 9px 16px;
-      font-size: 0.85rem;
+      padding: 10px 16px;
+      font-size: 0.88rem;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -251,7 +227,7 @@
       color: #fff;
       padding: 5px 14px;
       border-radius: 16px;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       font-weight: 600;
       cursor: pointer;
       white-space: nowrap;
@@ -263,7 +239,7 @@
       color: var(--primary);
     }
 
-    /* ESCRITORIO (PC): Reorganiza el header en una sola línea tradicional */
+    /* ESCRITORIO (PC) */
     @media (min-width: 768px) {
       .header-container {
         flex-direction: row;
@@ -272,10 +248,10 @@
       }
       .search-container {
         flex: 1;
-        max-width: 500px;
+        max-width: 550px;
         margin: 0 20px;
       }
-      .logo { font-size: 2.5rem; }
+      .logo { font-size: 2.6rem; }
     }
 
     /* FILTRO DE TALLAS */
@@ -289,23 +265,23 @@
     }
 
     .filter-label {
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       font-weight: 700;
       color: var(--muted);
     }
 
     .size-pills {
       display: flex;
-      gap: 5px;
+      gap: 6px;
       flex-wrap: wrap;
     }
 
     .size-pill {
       border: 1px solid #ddd;
       background: #fff;
-      padding: 3px 10px;
+      padding: 4px 10px;
       border-radius: 6px;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       font-weight: 700;
       cursor: pointer;
     }
@@ -316,7 +292,7 @@
       color: var(--primary);
     }
 
-    /* GRID DE PRODUCTOS RESPONSIVO */
+    /* GRID DE PRODUCTOS */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -377,7 +353,7 @@
     }
 
     .product-title {
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       font-weight: 600;
       margin-bottom: 4px;
       line-height: 1.25;
@@ -388,7 +364,7 @@
     }
 
     .stock-alert {
-      font-size: 0.68rem;
+      font-size: 0.7rem;
       color: var(--primary);
       font-weight: 700;
       margin-bottom: 4px;
@@ -402,7 +378,7 @@
     }
 
     .current-price {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       font-weight: 900;
       color: var(--primary);
     }
@@ -417,7 +393,7 @@
     .card-size-btn {
       border: 1px solid #ddd;
       background: #fafafa;
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       font-weight: 700;
       padding: 2px 6px;
       border-radius: 4px;
@@ -438,7 +414,7 @@
       padding: 6px;
       border-radius: 20px;
       font-weight: 700;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       cursor: pointer;
     }
 
@@ -459,7 +435,7 @@
       border: none;
       color: var(--primary);
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -524,7 +500,7 @@
     }
 
     .detail-info h1 {
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       margin-bottom: 8px;
     }
 
@@ -532,7 +508,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       color: #f59e0b;
       margin-bottom: 10px;
     }
@@ -545,7 +521,7 @@
     }
 
     .detail-price {
-      font-size: 1.45rem;
+      font-size: 1.5rem;
       font-weight: 900;
       color: var(--primary);
     }
@@ -558,12 +534,12 @@
     }
 
     .temu-size-btn {
-      min-width: 40px;
-      height: 35px;
+      min-width: 42px;
+      height: 36px;
       border: 1px solid #d1d5db;
       background: #fff;
       border-radius: 6px;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       font-weight: 700;
       cursor: pointer;
       display: flex;
@@ -585,7 +561,7 @@
       border: none;
       padding: 12px;
       border-radius: 25px;
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       font-weight: 800;
       cursor: pointer;
       display: flex;
@@ -611,8 +587,8 @@
       padding: 10px 0;
     }
 
-    .review-user { font-weight: 700; font-size: 0.82rem; margin-bottom: 4px; display:flex; justify-content:space-between; }
-    .review-comment { font-size: 0.8rem; color: #555; }
+    .review-user { font-weight: 700; font-size: 0.85rem; margin-bottom: 4px; display:flex; justify-content:space-between; }
+    .review-comment { font-size: 0.82rem; color: #555; }
 
     .review-form-box {
       background: #f9fafb;
@@ -625,7 +601,7 @@
     .star-select {
       display: flex;
       gap: 6px;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       cursor: pointer;
       color: #d1d5db;
       margin-bottom: 8px;
@@ -661,7 +637,7 @@
     }
 
     .admin-card h2 {
-      font-size: 0.98rem;
+      font-size: 1rem;
       margin-bottom: 12px;
       color: var(--primary-dark);
       display: flex;
@@ -680,7 +656,7 @@
       display: flex;
       align-items: center;
       gap: 4px;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       background: #f4f4f6;
       padding: 4px 8px;
       border-radius: 6px;
@@ -692,7 +668,7 @@
     .admin-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
     }
 
     .admin-table th, .admin-table td {
@@ -704,8 +680,8 @@
     .admin-table th { background: #f9fafb; color: var(--muted); font-weight: 700; }
 
     .admin-thumb {
-      width: 38px;
-      height: 42px;
+      width: 40px;
+      height: 45px;
       object-fit: cover;
       border-radius: 4px;
     }
@@ -726,12 +702,12 @@
       border: 1px solid #d1d5db;
       padding: 5px 10px;
       border-radius: 6px;
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       font-weight: 600;
       cursor: pointer;
     }
 
-    /* BARRA INFERIOR FLOTANTE ESTILO APP (MÓVIL) */
+    /* BARRA INFERIOR FLOTANTE ESTILO TEMU (MÓVIL) */
     .mobile-bottom-nav {
       position: fixed;
       bottom: 0;
@@ -758,14 +734,28 @@
       flex-direction: column;
       align-items: center;
       gap: 3px;
-      font-size: 0.7rem;
+      font-size: 0.72rem;
       color: #6b7280;
       cursor: pointer;
       flex: 1;
+      position: relative;
     }
 
-    .nav-item i { font-size: 1.15rem; }
+    .nav-item i { font-size: 1.2rem; }
     .nav-item.active { color: var(--primary); font-weight: 700; }
+
+    .nav-cart-badge {
+      position: absolute;
+      top: -2px;
+      right: 22%;
+      background: #111;
+      color: #fff;
+      font-size: 0.62rem;
+      font-weight: 700;
+      padding: 1px 4px;
+      border-radius: 8px;
+      border: 1px solid #fff;
+    }
 
     /* CARRITO LATERAL */
     .overlay {
@@ -813,7 +803,7 @@
     .promo-bar {
       background: #ecfdf5;
       color: var(--primary-dark);
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       padding: 8px 14px;
       text-align: center;
     }
@@ -841,9 +831,9 @@
     }
 
     .cart-item-info { flex: 1; }
-    .cart-item-title { font-size: 0.82rem; font-weight: 700; }
-    .cart-item-meta { font-size: 0.72rem; color: var(--muted); }
-    .cart-item-price { font-weight: 800; color: var(--primary); font-size: 0.88rem; }
+    .cart-item-title { font-size: 0.85rem; font-weight: 700; }
+    .cart-item-meta { font-size: 0.75rem; color: var(--muted); }
+    .cart-item-price { font-weight: 800; color: var(--primary); font-size: 0.9rem; }
 
     .qty-controls {
       display: flex;
@@ -870,11 +860,11 @@
     .summary-row {
       display: flex;
       justify-content: space-between;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       margin-bottom: 6px;
     }
 
-    .total-row { font-size: 1.05rem; font-weight: 900; margin-top: 8px; }
+    .total-row { font-size: 1.1rem; font-weight: 900; margin-top: 8px; }
 
     .checkout-btn {
       width: 100%;
@@ -882,9 +872,9 @@
       background: var(--primary);
       color: #fff;
       border: none;
-      padding: 11px;
+      padding: 12px;
       border-radius: 25px;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       font-weight: 800;
       cursor: pointer;
     }
@@ -929,7 +919,7 @@
 
     .form-group label {
       display: block;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       font-weight: 700;
       margin-bottom: 4px;
     }
@@ -939,7 +929,7 @@
       padding: 8px 10px;
       border: 1px solid #ccc;
       border-radius: 8px;
-      font-size: 0.88rem;
+      font-size: 0.9rem;
     }
 
     .payment-box {
@@ -987,9 +977,9 @@
       background: #25d366;
       color: #fff;
       border: none;
-      padding: 11px;
+      padding: 12px;
       border-radius: 25px;
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       font-weight: 800;
       cursor: pointer;
       display: flex;
@@ -1007,7 +997,7 @@
       color: #fff;
       padding: 8px 16px;
       border-radius: 20px;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       font-weight: 600;
       opacity: 0;
       pointer-events: none;
@@ -1020,11 +1010,11 @@
 </head>
 <body>
 
-  <!-- ENCABEZADO (ESTILO TEMU: BUSCADOR ABAJO DE LAS OPCIONES SUPERIORES) -->
+  <!-- ENCABEZADO -->
   <header class="header">
     <div class="header-container">
       
-      <!-- Fila Superior: Logo, Moneda S/, Admin, App, Carrito -->
+      <!-- 1. FILA SUPERIOR: Logo, Moneda S/, Admin, App -->
       <div class="header-top-row">
         <div class="logo" id="logoBtn" onclick="volverATienda()">
           Andreo At
@@ -1043,15 +1033,10 @@
           <button class="download-app-btn" onclick="descargarApp()" type="button">
             <i class="fa-solid fa-mobile-screen-button"></i> <span>App</span>
           </button>
-
-          <button class="cart-btn" id="openCartBtn" aria-label="Carrito" type="button">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <span class="cart-badge" id="cartCount">0</span>
-          </button>
         </div>
       </div>
 
-      <!-- Buscador (Arriba del todo en la jerarquía visual del teléfono) -->
+      <!-- 2. BUSCADOR GRANDE Y ANCHO -->
       <div class="search-container" id="searchContainer">
         <div class="search-box">
           <input type="text" id="searchInput" placeholder="Buscar prendas, marcas..." autocomplete="off" />
@@ -1067,6 +1052,7 @@
 
     </div>
 
+    <!-- 3. BARRA DE CATEGORÍAS -->
     <div class="categories-bar-container">
       <nav class="categories" id="categoryBar"></nav>
     </div>
@@ -1115,7 +1101,7 @@
           <span class="detail-price" id="detailPrice">S/ 0.00</span>
         </div>
 
-        <div style="margin-bottom:8px; font-weight:700; font-size:0.88rem;">
+        <div style="margin-bottom:8px; font-weight:700; font-size:0.9rem;">
           Talla: <span id="selectedSizeLabel" style="color:var(--primary);">S</span>
         </div>
 
@@ -1123,7 +1109,7 @@
 
         <div class="form-group" style="margin-bottom:14px;">
           <label>Cant.</label>
-          <select id="detailQty" style="width:100px; padding:7px; border-radius:6px; border:1px solid #ccc; font-weight:700;">
+          <select id="detailQty" style="width:100px; padding:8px; border-radius:6px; border:1px solid #ccc; font-weight:700;">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -1140,12 +1126,12 @@
 
     <!-- SECCIÓN DE RESEÑAS -->
     <div class="reviews-section">
-      <h3 style="margin-bottom:10px; font-size:1.05rem;"><i class="fa-solid fa-comments"></i> Reseñas de Compradores</h3>
+      <h3 style="margin-bottom:10px; font-size:1.1rem;"><i class="fa-solid fa-comments"></i> Reseñas de Compradores</h3>
       
       <div id="reviewsListContainer"></div>
 
       <div class="review-form-box">
-        <h4 style="font-size:0.85rem; margin-bottom:8px; color:var(--primary-dark);">Deja tu reseña y calificación:</h4>
+        <h4 style="font-size:0.88rem; margin-bottom:8px; color:var(--primary-dark);">Deja tu reseña y calificación:</h4>
         <form id="addReviewForm">
           <div class="form-group">
             <label>Tu Nombre</label>
@@ -1168,7 +1154,7 @@
             <textarea id="reviewComment" rows="2" required placeholder="¿Qué tal te pareció?"></textarea>
           </div>
 
-          <button type="submit" class="checkout-btn" style="padding:9px; font-size:0.85rem;">
+          <button type="submit" class="checkout-btn" style="padding:10px; font-size:0.88rem;">
             Publicar Reseña
           </button>
         </form>
@@ -1260,14 +1246,15 @@
     </button>
     <button class="nav-item" onclick="enfocarBuscador()" type="button">
       <i class="fa-solid fa-magnifying-glass"></i>
-      <span>Buscar</span>
+      <span>Categorías</span>
     </button>
     <button class="nav-item" onclick="abrirAdminMovil()" type="button">
       <i class="fa-solid fa-user-gear"></i>
-      <span>Admin</span>
+      <span>Tú / Admin</span>
     </button>
     <button class="nav-item" onclick="toggleCart(true)" type="button">
       <i class="fa-solid fa-cart-shopping"></i>
+      <span class="nav-cart-badge" id="navCartCount">0</span>
       <span>Carrito</span>
     </button>
   </nav>
@@ -1640,7 +1627,7 @@
       }
 
       if (reviews.length === 0) {
-        container.innerHTML = `<p style="font-size:0.8rem; color:#777;">Aún no hay reseñas. ¡Sé el primero en opinar!</p>`;
+        container.innerHTML = `<p style="font-size:0.85rem; color:#777;">Aún no hay reseñas. ¡Sé el primero en opinar!</p>`;
         return;
       }
 
@@ -1693,7 +1680,7 @@
     }
 
     function updateCartUI() {
-      const countEl = document.getElementById("cartCount");
+      const navBadge = document.getElementById("navCartCount");
       const container = document.getElementById("cartItemsContainer");
       const subtotalEl = document.getElementById("cartSubtotal");
       const totalEl = document.getElementById("cartTotal");
@@ -1702,7 +1689,7 @@
       const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
       const totalPen = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
-      countEl.textContent = totalItems;
+      navBadge.textContent = totalItems;
       subtotalEl.textContent = formatPrice(totalPen);
       totalEl.textContent = formatPrice(totalPen);
       document.getElementById("modalPayTotal").textContent = formatPrice(totalPen);
@@ -1742,7 +1729,6 @@
       document.getElementById("overlay").classList.toggle("active", open);
     }
 
-    document.getElementById("openCartBtn").addEventListener("click", () => toggleCart(true));
     document.getElementById("closeCartBtn").addEventListener("click", () => toggleCart(false));
     document.getElementById("overlay").addEventListener("click", () => toggleCart(false));
 
@@ -1880,7 +1866,6 @@
       });
     });
 
-    document.getElementById("currencySelector").readyState === "complete"
     document.getElementById("currencySelector").addEventListener("change", (e) => {
       currency = e.target.value;
       document.querySelectorAll(".currencySymbolLabel").forEach(el => el.textContent = currency === "USD" ? "$" : "S/");
