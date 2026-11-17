@@ -928,10 +928,16 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
     }
 
-    .qr-placeholder i { font-size: 3.5rem; color: var(--yape); }
+    .qr-img {
+      width: 170px;
+      height: 170px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
     .pay-note { font-size: 0.75rem; color: var(--muted); }
 
     .whatsapp-btn {
@@ -1261,8 +1267,9 @@
             <span class="badge-plin">PLIN</span>
           </div>
           <div class="qr-placeholder">
-            <i class="fa-solid fa-qrcode"></i>
-            <strong>999 888 777 - Andreo At Store</strong>
+            <!-- RUTA ACTUALIZADA APUNTANDO A LA CARPETA 'IMAGEN' -->
+            <img src="IMAGEN/qr-yape.png" class="qr-img" alt="QR Yape" onerror="this.src='https://via.placeholder.com/170?text=Error+al+cargar+QR'" />
+            <strong>920 484 815 - Andreo At Store</strong>
             <span class="pay-note">Monto a transferir: <strong id="modalPayTotal">S/ 0.00</strong></span>
           </div>
           <p class="pay-note">Realiza el pago y envíanos tu comprobante por WhatsApp al confirmar.</p>
@@ -1281,7 +1288,6 @@
   <script>
     // ==================== FUNCIÓN DESCARGAR APP ====================
     function descargarApp() {
-      // Crea un archivo descargable instantáneo en cualquier dispositivo
       const contenido = "=====================================\n" +
                         "      ANDREO AT STORE - APP OFICIAL     \n" +
                         "=====================================\n\n" +
@@ -1692,9 +1698,9 @@
       const totalPen = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
       const itemsText = cart.map(i => `• ${i.qty}x ${i.name} (Talla ${i.size}) - ${formatPrice(i.price * i.qty)}`).join("%0A");
-      const msg = `Hola *Andreo At Store*, quiero confirmar mi pedido:%0A%0A*Cliente:* ${name}%0A*Tel:* ${phone}%0A*Dirección:* ${address}%0A%0A*Detalle:*%0A${itemsText}%0A%0A*Total:* ${formatPrice(totalPen)}%0A_(Adjunto mi comprobante Yape/Plin)_`;
+      const msg = `Hola *Andreo At Store*, quiero confirmar mi pedido:%0A%0A*Cliente:* ${name}%0A*Tel:* ${phone}%0A*Dirección:* ${address}%0A%0A*Detalle:*%0A${itemsText}%0A%0A*Total:* ${formatPrice(totalPen)}%0A_(Yape al 920484815)_`;
 
-      window.open(`https://wa.me/51999888777?text=${msg}`, "_blank");
+      window.open(`https://wa.me/51920484815?text=${msg}`, "_blank");
       cart = [];
       saveState();
       updateCartUI();
