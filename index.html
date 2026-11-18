@@ -36,7 +36,7 @@
       background-color: var(--bg);
       color: var(--text);
       padding-top: 135px;
-      padding-bottom: 75px;
+      padding-bottom: 90px; /* Espacio extra para que la barra inferior no choque con los botones del celular */
     }
 
     @media (min-width: 768px) {
@@ -46,7 +46,7 @@
       }
     }
 
-    /* HEADER FIJO ABSOLUTO (STICKY) */
+    /* HEADER FIJO */
     .header {
       background: #ffffff;
       color: var(--text);
@@ -120,7 +120,7 @@
     .download-app-btn { background: #fef08a; color: #854d0e; border-color: #fde047; }
     .admin-toggle-btn.active-mode { background: var(--primary); color: #fff; border-color: var(--primary); }
 
-    /* BUSCADOR ESTILO TEMU */
+    /* BUSCADOR */
     .search-container {
       width: 100%;
       position: relative;
@@ -208,7 +208,7 @@
 
     .suggestion-item:hover { background: #f3f4f6; }
 
-    /* BARRA DE CATEGORÍAS */
+    /* CATEGORÍAS */
     .categories-bar-container {
       max-width: 1200px;
       margin: 0 auto;
@@ -308,7 +308,7 @@
       color: var(--primary);
     }
 
-    /* GRID DE PRODUCTOS */
+    /* PRODUCTOS */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -342,13 +342,10 @@
       flex-direction: column;
       position: relative;
       cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: transform 0.2s;
     }
 
-    .product-card:hover { 
-      transform: translateY(-3px); 
-      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-    }
+    .product-card:hover { transform: translateY(-3px); }
 
     .product-img {
       width: 100%;
@@ -434,9 +431,7 @@
       cursor: pointer;
     }
 
-    .add-btn:hover { background: var(--primary-dark); }
-
-    /* VISTA DETALLE PRODUCTO */
+    /* DETALLE */
     .product-detail-view {
       display: none;
       max-width: 1100px;
@@ -587,9 +582,7 @@
       box-shadow: 0 4px 12px rgba(255, 102, 0, 0.3);
     }
 
-    .temu-buy-btn:hover { background: var(--temu-orange-hover); }
-
-    /* SECCIÓN DE RESEÑAS */
+    /* RESEÑAS */
     .reviews-section {
       background: #fff;
       margin-top: 16px;
@@ -625,7 +618,7 @@
 
     .star-select span.active { color: #f59e0b; }
 
-    /* PANEL ADMINISTRADOR */
+    /* PANEL ADMIN */
     .admin-section {
       display: none;
       max-width: 1100px;
@@ -723,20 +716,21 @@
       cursor: pointer;
     }
 
-    /* BARRA INFERIOR FLOTANTE FIJA (MÓVIL) */
+    /* BARRA INFERIOR FLOTANTE MÁS ARRIBA */
     .mobile-bottom-nav {
       position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
+      bottom: 16px; /* Sube la barra para evitar chocar con los botones táctiles del teléfono */
+      left: 12px;
+      right: 12px;
       background: #fff;
-      border-top: 1px solid #e5e7eb;
+      border: 1px solid #e5e7eb;
+      border-radius: 16px;
       display: flex;
       justify-content: space-around;
       align-items: center;
       padding: 8px 0;
       z-index: 1500;
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.06);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
     }
 
     @media (min-width: 768px) {
@@ -773,7 +767,7 @@
       border: 1px solid #fff;
     }
 
-    /* MODAL DE PERFIL / INICIO DE SESIÓN */
+    /* MODAL DE PERFIL DE USUARIO Y SEGUIMIENTO */
     .profile-modal {
       position: fixed;
       inset: 0;
@@ -789,12 +783,13 @@
     .profile-content {
       background: #fff;
       width: 100%;
-      max-width: 360px;
+      max-width: 380px;
       border-radius: 16px;
-      padding: 24px;
-      text-align: center;
+      padding: 22px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
       position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
     }
 
     .social-login-btn {
@@ -819,7 +814,26 @@
     .btn-tiktok { background: var(--tiktok); }
     .btn-instagram { background: var(--instagram); }
 
-    /* MODAL INSTALAR APP (PWA) */
+    /* ESTILO MAPA / SEGUIMIENTO DE PEDIDOS */
+    .order-card-profile {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px;
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .map-tracker {
+      background: #e6f4ea;
+      border: 1px dashed var(--primary);
+      border-radius: 8px;
+      padding: 10px;
+      margin-top: 8px;
+      font-size: 0.78rem;
+    }
+
+    /* MODAL INSTALAR APP */
     .app-modal {
       position: fixed;
       inset: 0;
@@ -1074,7 +1088,7 @@
 
     .toast {
       position: fixed;
-      bottom: 75px;
+      bottom: 95px;
       left: 50%;
       transform: translateX(-50%);
       background: rgba(26,26,26,0.92);
@@ -1302,7 +1316,7 @@
     </div>
   </section>
 
-  <!-- BARRA INFERIOR FIJA -->
+  <!-- BARRA INFERIOR FLOTANTE MÁS ARRIBA -->
   <nav class="mobile-bottom-nav">
     <button class="nav-item active" onclick="volverATienda()" type="button">
       <i class="fa-solid fa-house"></i>
@@ -1323,27 +1337,44 @@
     </button>
   </nav>
 
-  <!-- MODAL DE PERFIL / INICIO DE SESIÓN -->
+  <!-- MODAL DE PERFIL / INICIO DE SESIÓN / SEGUIMIENTO DE PEDIDOS -->
   <div class="profile-modal" id="profileModal">
     <div class="profile-content">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
-        <h3 style="font-size:1.1rem; color:var(--primary-dark);">Iniciar Sesión / Perfil</h3>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <h3 style="font-size:1.1rem; color:var(--primary-dark);">Mi Cuenta y Pedidos</h3>
         <button class="close-btn" onclick="cerrarPerfilModal()"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <p style="font-size:0.85rem; color:#666; margin-bottom:18px;">Ingresa rápidamente con tu red social favorita:</p>
 
-      <button class="social-login-btn btn-google" onclick="iniciarSesionSocial('Google')">
-        <i class="fa-brands fa-google"></i> Continuar con Google
-      </button>
-      <button class="social-login-btn btn-facebook" onclick="iniciarSesionSocial('Facebook')">
-        <i class="fa-brands fa-facebook-f"></i> Continuar con Facebook
-      </button>
-      <button class="social-login-btn btn-tiktok" onclick="iniciarSesionSocial('TikTok')">
-        <i class="fa-brands fa-tiktok"></i> Continuar con TikTok
-      </button>
-      <button class="social-login-btn btn-instagram" onclick="iniciarSesionSocial('Instagram')">
-        <i class="fa-brands fa-instagram"></i> Continuar con Instagram
-      </button>
+      <div id="profileLoggedOutView">
+        <p style="font-size:0.85rem; color:#666; margin-bottom:14px;">Inicia sesión para registrar tus pedidos y ver el mapa de seguimiento:</p>
+        <button class="social-login-btn btn-google" onclick="iniciarSesionSocial('Google')">
+          <i class="fa-brands fa-google"></i> Continuar con Google
+        </button>
+        <button class="social-login-btn btn-facebook" onclick="iniciarSesionSocial('Facebook')">
+          <i class="fa-brands fa-facebook-f"></i> Continuar con Facebook
+        </button>
+        <button class="social-login-btn btn-tiktok" onclick="iniciarSesionSocial('TikTok')">
+          <i class="fa-brands fa-tiktok"></i> Continuar con TikTok
+        </button>
+        <button class="social-login-btn btn-instagram" onclick="iniciarSesionSocial('Instagram')">
+          <i class="fa-brands fa-instagram"></i> Continuar con Instagram
+        </button>
+      </div>
+
+      <div id="profileLoggedInView" style="display:none;">
+        <div style="display:flex; align-items:center; gap:10px; background:#f0fdf4; padding:10px; border-radius:10px; margin-bottom:12px;">
+          <i class="fa-solid fa-circle-user" style="font-size:2rem; color:var(--primary);"></i>
+          <div style="text-align:left;">
+            <div id="profileUserName" style="font-weight:700; font-size:0.9rem;">Usuario</div>
+            <div id="profileUserEmail" style="font-size:0.75rem; color:#666;">usuario@gmail.com</div>
+          </div>
+        </div>
+
+        <h4 style="font-size:0.88rem; margin-bottom:6px; color:#111; text-align:left;"><i class="fa-solid fa-box"></i> Mis Pedidos y Seguimiento (Mapa):</h4>
+        <div id="userOrdersContainer" style="max-height:220px; overflow-y:auto;"></div>
+
+        <button class="checkout-btn" style="background:#ef4444; margin-top:14px;" onclick="cerrarSesion()">Cerrar Sesión</button>
+      </div>
     </div>
   </div>
 
@@ -1502,6 +1533,8 @@
 
     let products = JSON.parse(localStorage.getItem("andreoat_products")) || [...DEFAULT_PRODUCTS];
     let cart = JSON.parse(localStorage.getItem("andreoat_cart")) || [];
+    let currentUser = JSON.parse(localStorage.getItem("andreoat_user")) || null;
+    let userOrders = JSON.parse(localStorage.getItem("andreoat_orders")) || [];
     let currency = "PEN";
     const EXCHANGE_RATE = 3.75;
 
@@ -1523,6 +1556,8 @@
     function saveState() {
       localStorage.setItem("andreoat_products", JSON.stringify(products));
       localStorage.setItem("andreoat_cart", JSON.stringify(cart));
+      localStorage.setItem("andreoat_user", JSON.stringify(currentUser));
+      localStorage.setItem("andreoat_orders", JSON.stringify(userOrders));
     }
 
     function mostrarToast(msg) {
@@ -1536,8 +1571,23 @@
       document.getElementById(id).classList.remove("active");
     }
 
+    // CONTROL DE PERFIL Y SESIÓN SOCIAL
     function abrirPerfilModal() {
-      document.getElementById("profileModal").classList.add("active");
+      const modal = document.getElementById("profileModal");
+      const loggedOut = document.getElementById("profileLoggedOutView");
+      const loggedIn = document.getElementById("profileLoggedInView");
+
+      if (currentUser) {
+        loggedOut.style.display = "none";
+        loggedIn.style.display = "block";
+        document.getElementById("profileUserName").textContent = currentUser.name;
+        document.getElementById("profileUserEmail").textContent = currentUser.email;
+        renderUserOrders();
+      } else {
+        loggedOut.style.display = "block";
+        loggedIn.style.display = "none";
+      }
+      modal.classList.add("active");
     }
 
     function cerrarPerfilModal() {
@@ -1545,8 +1595,84 @@
     }
 
     function iniciarSesionSocial(proveedor) {
-      cerrarPerfilModal();
-      mostrarToast(`¡Sesión iniciada con éxito vía ${proveedor}!`);
+      currentUser = {
+        name: `Usuario ${proveedor}`,
+        email: `usuario.${proveedor.toLowerCase()}@gmail.com`
+      };
+      saveState();
+      abrirPerfilModal();
+      mostrarToast(`¡Sesión iniciada con ${proveedor}!`);
+    }
+
+    function cerrarSesion() {
+      currentUser = null;
+      saveState();
+      abrirPerfilModal();
+      mostrarToast("Sesión cerrada");
+    }
+
+    function renderUserOrders() {
+      const container = document.getElementById("userOrdersContainer");
+      if (userOrders.length === 0) {
+        container.innerHTML = `<p style="font-size:0.82rem; color:#666; text-align:center; padding:10px;">Aún no tienes pedidos registrados.</p>`;
+        return;
+      }
+      container.innerHTML = userOrders.map(o => `
+        <div class="order-card-profile">
+          <div style="font-weight:700; font-size:0.82rem;">Pedido #${o.id} - ${formatPrice(o.total)}</div>
+          <div style="font-size:0.75rem; color:#555;">Fecha: ${o.date}</div>
+          <div class="map-tracker">
+            <i class="fa-solid fa-map-location-dot" style="color:var(--primary);"></i> <b>Estado:</b> ${o.status}<br>
+            <span style="color:#047857;">🚗 El delivery está a 3 cuadras de tu dirección. ¡En camino!</span>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    // MANEJO HISTORIAL PARA QUE EL BOTÓN ATRÁS DEL TELÉFONO NO CIERRE LA APP
+    function verDetalle(id) {
+      const prod = products.find(p => p.id === id);
+      if (!prod) return;
+      currentDetailProduct = prod;
+      currentDetailSize = prod.sizes[0] || "M";
+
+      document.getElementById("storeView").style.display = "none";
+      document.getElementById("adminView").classList.remove("active");
+      document.getElementById("toggleAdminBtn").classList.remove("active-mode");
+      document.getElementById("productDetailView").classList.add("active");
+
+      document.getElementById("detailMainImg").src = prod.image;
+      document.getElementById("detailThumbs").innerHTML = `<img src="${prod.image}" class="detail-thumb active" />`;
+      document.getElementById("detailStock").textContent = prod.stock;
+      document.getElementById("detailTitle").textContent = prod.name;
+      document.getElementById("detailPrice").textContent = formatPrice(prod.price);
+      document.getElementById("detailQty").value = "1";
+
+      renderDetailSizes();
+      renderReviews();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+
+      // Añadir estado al historial para interceptar el botón atrás
+      history.pushState({ view: 'detail', id: id }, '', '#detalle');
+    }
+
+    window.addEventListener('popstate', (e) => {
+      if (e.state && e.state.view === 'detail') {
+        // Estaba en detalle
+      } else {
+        volverATiendaSilencioso();
+      }
+    });
+
+    function volverATienda() {
+      history.back();
+    }
+
+    function volverATiendaSilencioso() {
+      document.getElementById("productDetailView").classList.remove("active");
+      document.getElementById("adminView").classList.remove("active");
+      document.getElementById("toggleAdminBtn").classList.remove("active-mode");
+      document.getElementById("storeView").style.display = "block";
     }
 
     function renderCategories() {
@@ -1561,7 +1687,7 @@
 
     function filtrarCategoria(cat) {
       selectedCategory = cat;
-      volverATienda();
+      volverATiendaSilencioso();
       renderCategories();
       renderProducts();
     }
@@ -1657,12 +1783,12 @@
       searchInput.value = text;
       searchQuery = text;
       suggestionsBox.classList.remove("active");
-      volverATienda();
+      volverATiendaSilencioso();
       renderProducts();
     }
 
     function enfocarBuscador() {
-      volverATienda();
+      volverATiendaSilencioso();
       searchInput.focus();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -1672,29 +1798,6 @@
         suggestionsBox.classList.remove("active");
       }
     });
-
-    function verDetalle(id) {
-      const prod = products.find(p => p.id === id);
-      if (!prod) return;
-      currentDetailProduct = prod;
-      currentDetailSize = prod.sizes[0] || "M";
-
-      document.getElementById("storeView").style.display = "none";
-      document.getElementById("adminView").classList.remove("active");
-      document.getElementById("toggleAdminBtn").classList.remove("active-mode");
-      document.getElementById("productDetailView").classList.add("active");
-
-      document.getElementById("detailMainImg").src = prod.image;
-      document.getElementById("detailThumbs").innerHTML = `<img src="${prod.image}" class="detail-thumb active" />`;
-      document.getElementById("detailStock").textContent = prod.stock;
-      document.getElementById("detailTitle").textContent = prod.name;
-      document.getElementById("detailPrice").textContent = formatPrice(prod.price);
-      document.getElementById("detailQty").value = "1";
-
-      renderDetailSizes();
-      renderReviews();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
 
     function renderDetailSizes() {
       document.getElementById("selectedSizeLabel").textContent = currentDetailSize;
@@ -1707,13 +1810,6 @@
     function agregarAlCarritoDesdeDetalle() {
       const qty = parseInt(document.getElementById("detailQty").value, 10) || 1;
       agregarAlCarrito(currentDetailProduct.id, currentDetailSize, qty);
-    }
-
-    function volverATienda() {
-      document.getElementById("productDetailView").classList.remove("active");
-      document.getElementById("adminView").classList.remove("active");
-      document.getElementById("toggleAdminBtn").classList.remove("active-mode");
-      document.getElementById("storeView").style.display = "block";
     }
 
     function renderReviews() {
@@ -1848,6 +1944,15 @@
       const address = document.getElementById("custAddress").value;
       const totalPen = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
 
+      // REGISTRAR PEDIDO EN EL PERFIL DEL USUARIO
+      const newOrder = {
+        id: Math.floor(1000 + Math.random() * 9000),
+        total: totalPen,
+        date: new Date().toLocaleDateString(),
+        status: "En Camino (Delivery Activo)"
+      };
+      userOrders.unshift(newOrder);
+
       const itemsText = cart.map(i => `• ${i.qty}x ${i.name} (Talla ${i.size}) - ${formatPrice(i.price * i.qty)}`).join("%0A");
       const msg = `Hola *Andreo At Store*, quiero confirmar mi pedido:%0A%0A*Cliente:* ${name}%0A*Tel:* ${phone}%0A*Dirección:* ${address}%0A%0A*Detalle:*%0A${itemsText}%0A%0A*Total:* ${formatPrice(totalPen)}%0A_(Yape al 920484815)_`;
 
@@ -1856,7 +1961,7 @@
       saveState();
       updateCartUI();
       cerrarModal("checkoutModal");
-      mostrarToast("¡Pedido generado! Revisa WhatsApp.");
+      mostrarToast("¡Pedido registrado en tu perfil y enviado a WhatsApp!");
     });
 
     const toggleAdminBtn = document.getElementById("toggleAdminBtn");
